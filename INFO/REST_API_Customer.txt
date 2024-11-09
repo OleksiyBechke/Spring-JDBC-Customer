@@ -1,0 +1,91 @@
+
+REST API Customer
+---------------------
+
+Postman для тесту REST API
+https://www.postman.com/
+
+Для здійснення кожного запиту, натискаємо Send .
+Якщо REST-запит має тіло, необхідно налаштування
+в Postman: Body > raw > JSON.
+
+(1) Створення даних
+
+POST
+http://localhost:8080/Spring-JDBC-Customer-1.0-SNAPSHOT/api/v1/customers
+
+Виконуємо окремі запити
+
+{
+    "name": "Alice Johnson",
+    "phone": "+380671234567",
+    "address": "Kyiv, 15 Khreshchatyk St"
+}
+
+{
+    "name": "Bob Williams",
+    "phone": "+380993456789",
+    "address": "Lviv, 20 Franko St"
+}
+
+{
+    "name": "Catherine Brown",
+    "phone": "+380931234890",
+    "address": "Odesa, 33 Deribasivska St"
+}
+
+{
+    "name": "David Smith",
+    "phone": "+380502345678",
+    "address": "Dnipro, 10 Gagarin Ave"
+}
+
+{
+    "name": "Eva Taylor",
+    "phone": "+380681234567",
+    "address": "Kharkiv, 5 Shevchenko St"
+}
+
+
+Перевіремо через MySQL Workbench.
+
+(2) Отримання всіх даних
+
+GET
+http://localhost:8080/Spring-JDBC-Customer-1.0-SNAPSHOT/api/v1/customers
+
+(3) Отримання даних за id
+
+GET
+http://localhost:8080/Spring-JDBC-Customer-1.0-SNAPSHOT/api/v1/customers/3
+
+Також, за неіснуючим id
+
+GET
+http://localhost:8080/Spring-JDBC-Customer-1.0-SNAPSHOT/api/v1/customers/9
+
+(4) Оновлення даних за id
+
+PUT
+http://localhost:8080/Spring-JDBC-Customer-1.0-SNAPSHOT/api/v1/customers/3
+
+{
+    "name": "Catherine Brown",
+    "phone": "+380123456789",
+    "address": "Odesa, 100 Deribasivska St"
+}
+
+Перевіремо через MySQL Workbench та REST-запит за відповідним id.
+
+Також, спробуємо оновити за неіснуючим id.
+
+(5) Видалення даних за id
+
+DELETE
+http://localhost:8080/Spring-JDBC-Customer-1.0-SNAPSHOT/api/v1/customers/4
+
+Перевіремо через MySQL Workbench, REST-запити отримання всіх даних
+та за відповідним id.
+
+Також, спробуємо повторно видалити та тим самим id, та за неіснуючим id.
+
